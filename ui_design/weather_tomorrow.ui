@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FilmByNameWindow</class>
+ <widget class="QMainWindow" name="FilmByNameWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>471</width>
+    <height>427</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Api - app</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Основной фон окна */
+QMainWindow {
+    background-color: #121423;
+}
+
+/* СТИЛЬ КНОПКИ (у вас уже есть, оставляем) */
+QPushButton {
+    background-color: #8e3d0a; 
+    color: white; 
+    border-radius: 20px;
+    font-size: 24px;
+    margin: 2px;
+}
+
+QPushButton:hover {
+    background-color: #a85216;
+}
+
+QPushButton:pressed {
+    background-color: #6b2e08;
+    margin-top: 4px;
+    margin-left: 4px;
+}
+
+/* СТИЛЬ МЕНЮ БАРА (верхняя панель) */
+QMenuBar {
+    background-color: #1a1c2e;
+    color: #ffffff;
+    font-family: 'Corbel';
+    font-size: 18px;
+    padding: 5px;
+}
+
+QMenuBar::item {
+    background-color: transparent;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+QMenuBar::item:selected {
+    background-color: rgba(142, 61, 10, 0.7); /* Полупрозрачный оранжевый */
+    color: white;
+}
+
+QMenuBar::item:pressed {
+    background-color: #8e3d0a; /* Тот же цвет что и кнопка */
+}
+
+/* СТИЛЬ ВЫПАДАЮЩЕГО МЕНЮ */
+QMenu {
+    background-color: #1a1c2e;
+    border: 1px solid #2a2c3e;
+    border-radius: 8px;
+    padding: 5px;
+    color: white;
+}
+
+QMenu::item {
+    background-color: transparent;
+    padding: 10px 20px;
+    margin: 2px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+}
+
+QMenu::item:selected {
+    background-color: rgba(142, 61, 10, 0.7); /* Полупрозрачный оранжевый */
+    color: white;
+}
+
+QMenu::item:pressed {
+    background-color: #8e3d0a; /* Тот же цвет что и кнопка */
+}
+
+QMenu::separator {
+    height: 1px;
+    background-color: #2a2c3e;
+    margin: 5px 10px;
+}
+
+/* СТИЛЬ ЭЛЕМЕНТОВ МЕНЮ (действий) */
+QAction {
+    color: white;
+    font-size: 16px;
+}
+
+/* СТИЛЬ МЕТКИ ДЛЯ ИЗОБРАЖЕНИЯ */
+QLabel {
+    background-color: #494c5c; 
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    font-family: Arial;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: #121423;</string>
+   </property>
+   <widget class="QPushButton" name="show_weather">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>20</y>
+      <width>161</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #8e3d0a; 
+    color: white; 
+    border-radius: 20px;
+    font-size: 24px;
+    margin: 2px;
+}
+
+QPushButton:hover {
+    background-color: #a85216;
+}
+
+QPushButton:pressed {
+    background-color: #6b2e08;
+    margin-top: 4px;
+    margin-left: 4px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Показать</string>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>100</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="weather_poster">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>190</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>300</width>
+      <height>300</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #494c5c; 
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    font-family: Arial;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="avg_temperature_title">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>210</y>
+      <width>190</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #a85216; font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string>Средняя температура:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="avg_temperature">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>210</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white; font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string>-- °C</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="day_title">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>130</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #a85216; font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string>Дата:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="wind_speed_km_h">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>290</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white; font-size: 16px; </string>
+    </property>
+    <property name="text">
+     <string>--- KM/Ч</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="avg_wind_speed_title">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>290</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #a85216; font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string>Средняя cкорость ветра:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="input_city">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>261</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+    background-color: #2a2c3e;
+    border: 2px solid #3a3c4e;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    padding: 8px 15px;
+    selection-background-color: #8e3d0a;
+}
+
+QLineEdit:focus {
+    border: 2px solid #8e3d0a;
+    background-color: #3a3c4e;
+}
+
+QLineEdit:hover {
+    border: 2px solid #a85216;
+}
+
+QLineEdit::placeholder {
+    color: #8b8d90;
+    font-style: italic;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="placeholderText">
+     <string>Введите название города...</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>100</y>
+      <width>471</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>91</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhDate</set>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="day">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>130</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white; font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string>дд.мм.гггг</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="weather_descr_title">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>130</y>
+      <width>80</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #a85216; font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string>Погода: </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="weather_descr">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>290</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white; font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string>Freezing fog</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>471</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Corbel</family>
+     <pointsize>-1</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #8b8d90;</string>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Меню</string>
+    </property>
+    <widget class="QMenu" name="weather_menu">
+     <property name="title">
+      <string>Погода</string>
+     </property>
+     <addaction name="weather_today"/>
+     <addaction name="weather_tomorrow"/>
+    </widget>
+    <addaction name="action_random_cat"/>
+    <addaction name="action_random_dog"/>
+    <addaction name="action_random_film"/>
+    <addaction name="action_film_by_name"/>
+    <addaction name="weather_menu"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_random_cat">
+   <property name="text">
+    <string>Рандомный кот</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_random_dog">
+   <property name="text">
+    <string>Рандомная собака</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_random_film">
+   <property name="text">
+    <string>Рандомный фильм</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_film_by_name">
+   <property name="text">
+    <string>Поиск фильма</string>
+   </property>
+  </action>
+  <action name="weather_today">
+   <property name="text">
+    <string>Погода на сегодня      </string>
+   </property>
+  </action>
+  <action name="weather_tomorrow">
+   <property name="text">
+    <string>Погода на завтра    </string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

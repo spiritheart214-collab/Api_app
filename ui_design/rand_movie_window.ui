@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RandMovieWindow</class>
+ <widget class="QMainWindow" name="RandMovieWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>682</width>
+    <height>740</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Api - app</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Основной фон окна */
+QMainWindow {
+    background-color: #121423;
+}
+
+/* СТИЛЬ КНОПКИ (у вас уже есть, оставляем) */
+QPushButton {
+    background-color: #8e3d0a; 
+    color: white; 
+    border-radius: 20px;
+    font-size: 24px;
+    margin: 2px;
+}
+
+QPushButton:hover {
+    background-color: #a85216;
+}
+
+QPushButton:pressed {
+    background-color: #6b2e08;
+    margin-top: 4px;
+    margin-left: 4px;
+}
+
+/* СТИЛЬ МЕНЮ БАРА (верхняя панель) */
+QMenuBar {
+    background-color: #1a1c2e;
+    color: #ffffff;
+    font-family: 'Corbel';
+    font-size: 18px;
+    padding: 5px;
+}
+
+QMenuBar::item {
+    background-color: transparent;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+QMenuBar::item:selected {
+    background-color: rgba(142, 61, 10, 0.7); /* Полупрозрачный оранжевый */
+    color: white;
+}
+
+QMenuBar::item:pressed {
+    background-color: #8e3d0a; /* Тот же цвет что и кнопка */
+}
+
+/* СТИЛЬ ВЫПАДАЮЩЕГО МЕНЮ */
+QMenu {
+    background-color: #1a1c2e;
+    border: 1px solid #2a2c3e;
+    border-radius: 8px;
+    padding: 5px;
+    color: white;
+}
+
+QMenu::item {
+    background-color: transparent;
+    padding: 10px 20px;
+    margin: 2px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+}
+
+QMenu::item:selected {
+    background-color: rgba(142, 61, 10, 0.7); /* Полупрозрачный оранжевый */
+    color: white;
+}
+
+QMenu::item:pressed {
+    background-color: #8e3d0a; /* Тот же цвет что и кнопка */
+}
+
+QMenu::separator {
+    height: 1px;
+    background-color: #2a2c3e;
+    margin: 5px 10px;
+}
+
+/* СТИЛЬ ЭЛЕМЕНТОВ МЕНЮ (действий) */
+QAction {
+    color: white;
+    font-size: 16px;
+}
+
+/* СТИЛЬ МЕТКИ ДЛЯ ИЗОБРАЖЕНИЯ */
+QLabel {
+    background-color: #494c5c; 
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    font-family: Arial;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: #121423;</string>
+   </property>
+   <widget class="QPushButton" name="rand_movie_button">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>610</y>
+      <width>411</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #8e3d0a; 
+    color: white; 
+    border-radius: 20px;
+    font-size: 24px;
+    margin: 2px;
+}
+
+QPushButton:hover {
+    background-color: #a85216;
+}
+
+QPushButton:pressed {
+    background-color: #6b2e08;
+    margin-top: 4px;
+    margin-left: 4px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Рандомный фильм</string>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>100</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_poster">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>10</y>
+      <width>300</width>
+      <height>300</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>300</width>
+      <height>300</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>300</width>
+      <height>300</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #494c5c; 
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    font-family: Arial;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_film_title">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>330</y>
+      <width>81</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #a85216; font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string>Фильм:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_name">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>330</y>
+      <width>300</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white; font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string>тут будет имя фильма</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_year_title">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>390</y>
+      <width>51</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #a85216; font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string>Год: </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_year">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>390</y>
+      <width>300</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white; font-size: 16px; </string>
+    </property>
+    <property name="text">
+     <string>тут будет год</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_desc_title">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>460</y>
+      <width>101</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #a85216; font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string>Описание:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_description">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>450</y>
+      <width>300</width>
+      <height>130</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white; font-size: 16px;</string>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhNone</set>
+    </property>
+    <property name="text">
+     <string>тут будет описание фильма</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>682</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Corbel</family>
+     <pointsize>-1</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #8b8d90;</string>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Меню</string>
+    </property>
+    <addaction name="action_random_cat"/>
+    <addaction name="action_random_dog"/>
+    <addaction name="action_random_film"/>
+    <addaction name="action_film_by_name"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_random_cat">
+   <property name="text">
+    <string>Рандомный кот</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_random_dog">
+   <property name="text">
+    <string>Рандомная собака</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_random_film">
+   <property name="text">
+    <string>Рандомный фильм</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_film_by_name">
+   <property name="text">
+    <string>Поиск фильма</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
