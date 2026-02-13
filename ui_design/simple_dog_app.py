@@ -11,6 +11,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 class Ui_RandDogWindow(object):
     def setupUi(self, RandDogWindow):
+        print("ПРедустановка")
         RandDogWindow.setObjectName("RandDogWindow")
         RandDogWindow.resize(500, 600)
         RandDogWindow.setStyleSheet("/* Основной фон окна */\n"
